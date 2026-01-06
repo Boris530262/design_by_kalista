@@ -20,17 +20,24 @@
             color: #1a1a1a;
         }
 
-        /* Gornji crni header */
+        /* Gornji header */
         .logo-header {
             background-color: rgb(255, 244, 237);
             padding: 20px 0;
         }
 
+        /* Stitch prilagodba */
         #stich {
-            margin-top: 40px;
-            /* povećaj/smanji po želji */
+            height: 150px;
         }
 
+        @media (max-width: 768px) {
+            #stich {
+                margin-top: 20px;
+                height: 120px;
+                /* Malo ga smanjimo na mobitelu */
+            }
+        }
 
         /* Navigacija */
         .navbar {
@@ -44,10 +51,9 @@
             font-size: 0.9rem;
         }
 
-        /* Stilovi za 3D Kartice */
+        /* 3D Kartice */
         .product-card-container {
             perspective: 1000px;
-            /* Ključno za 3D efekt */
         }
 
         .product-card {
@@ -61,7 +67,6 @@
             height: 100%;
         }
 
-        /* 3D Rotacija na Hover */
         .product-card-container:hover .product-card {
             transform: rotateY(10deg) rotateX(5deg) translateY(-10px);
             box-shadow: -15px 20px 40px rgba(0, 0, 0, 0.15);
@@ -81,16 +86,9 @@
             height: 100%;
             object-fit: contain;
             filter: drop-shadow(5px 10px 15px rgba(0, 0, 0, 0.1));
-            /* Sjena same maskice */
             transition: transform 0.5s ease;
         }
 
-        .product-card-container:hover .card-img-top {
-            transform: translateZ(50px);
-            /* Slika "iskače" prema naprijed */
-        }
-
-        /* Gumbi i cijene */
         .btn-buy {
             background-color: #000;
             color: #fff;
@@ -116,7 +114,6 @@
             display: block;
         }
 
-        /* Slajder */
         #myCarousel {
             max-width: 1100px;
             margin: 40px auto;
@@ -150,33 +147,35 @@
             z-index: 10;
         }
     </style>
-
 </head>
 
 <body>
 
     <header class="logo-header">
         <div class="container">
-            <div class="row align-items-center">
-                <!-- Logo lijevo -->
-                <div class="col-6 text-start">
+            <div class="row row-cols-1 row-cols-md-2 align-items-center text-center">
+                <div class="col text-md-start">
                     <img src="logo pravi.jpeg" alt="logo" style="height: 150px;">
                 </div>
 
-                <!-- Stich desno -->
-                <div class="col-6 text-end">
-                    <img src="image.png" alt="stich" id="stich" style="height: 150px;">
+                <div class="col text-md-end">
+                    <img src="image.png" alt="stich" id="stich">
                 </div>
             </div>
         </div>
     </header>
 
-
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
         <div class="container">
             <a class="navbar-brand fw-black" href="#" style="font-weight: 900; color: pink;">DESIGN BY KALISTA</a>
-            <div class="collapse navbar-collapse justify-content-center">
-                <ul class="navbar-nav gap-4">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav gap-lg-4">
                     <li class="nav-item"><a class="nav-link active" href="index.html"
                             style="border-bottom: 2px solid pink; color: pink;">Početna</a></li>
                     <li class="nav-item"><a class="nav-link" href="#modeli" style="color: pink;">Kolekcija</a></li>
@@ -189,7 +188,8 @@
 
     <div class="container mt-5 pt-3">
         <div class="text-center">
-            <h1 style="font-weight: 900; font-size: 3.5rem; letter-spacing: -2px; color: pink;">PRONAĐI SVOJ STIL.</h1>
+            <h1 style="font-weight: 900; font-size: calc(1.5rem + 2vw); letter-spacing: -2px; color: pink;">PRONAĐI SVOJ
+                STIL.</h1>
             <p class="text-secondary fs-5" style="color: rgb(226, 114, 226);">Narukvice, kemijske olovke, privjesci sve
                 na jednom mjestu!</p>
         </div>
@@ -205,6 +205,7 @@
             </div>
         </div>
     </div>
+
 
     <div class="container my-5" id="modeli">
         <h2 class="fw-bold mb-5 ps-3" style="border-left: 5px solid black;">Naši Modeli</h2>
@@ -254,7 +255,7 @@
             </div>
         </div>
 
-        
+
         <div class="row g-5">
             <div class="col-md-4 product-card-container">
                 <div class="card product-card">
@@ -345,29 +346,24 @@
 
     <footer id="kontakt" class="text-center">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <h2 style="font-weight: 900; font-size: 1.8rem; letter-spacing: -1px; color: purple;">
-                        Pridružite se našoj Whatsapp grupi:
+            <div class="row gy-4">
+                <div class="col-md-6">
+                    <h2 style="font-weight: 900; font-size: 1.8rem; color: purple;">Pridružite se našoj Whatsapp grupi:
                     </h2>
-                    <a href="https://chat.whatsapp.com/FbVKZDfPIG4ByWN7q8kdaS" class="btn btn-outline-primary"
-                        style="background-color: pink; border-color: rgb(102, 77, 81); color: purple;" target="_blank">
-                        Pridružite se
-                    </a>
+                    <a href="https://chat.whatsapp.com/FbVKZDfPIG4ByWN7q8kdaS" class="btn"
+                        style="background-color: pink; border: 1px solid purple; color: purple;"
+                        target="_blank">Pridružite se</a>
                 </div>
-                <div class="col-sm-6">
-                    <h2 style="font-weight: 900; font-size: 1.8rem; letter-spacing: -1px; color: purple;">
-                        Narukvice, kemijske olovke, privjesci naručuju se preko kontakta ispod:
-                    </h2>
-                    <a href="https://chat.whatsapp.com/FbVKZDfPIG4ByWN7q8kdaS" class="btn btn-outline-primary"
-                        style="background-color: pink; border-color: rgb(102, 77, 81); color: purple;" target="_blank">
-                        +387 63 002 639
-                    </a>
-                    <p style="color: purple;">Kalista(Vlasnica)</p>
+                <div class="col-md-6">
+                    <h2 style="font-weight: 900; font-size: 1.8rem; color: purple;">Kontakt za narudžbe:</h2>
+                    <a href="https://chat.whatsapp.com/FbVKZDfPIG4ByWN7q8kdaS" class="btn"
+                        style="background-color: pink; border: 1px solid purple; color: purple;" target="_blank">+387 63
+                        002 639</a>
+                    <p class="mt-2" style="color: purple;">Vlasnica</p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12 mt-4">
+            <div class="row mt-5">
+                <div class="col-12">
                     <p style="color: purple;">&copy; 2026 DESIGN BY KALISTA. Sva prava zadržana.</p>
                 </div>
             </div>
